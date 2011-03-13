@@ -1,0 +1,19 @@
+= simple_form_for(@report) do |f|
+  = render "shared/error_messages", :target => @report
+
+  .inputs
+    - unless user_signed_in?
+      = f.fields_for :user do |u|
+        = u.input :name
+        = u.input :last_name
+        = u.input :email
+        = u.input :phone
+
+    = f.input :address
+    = f.association :category
+    = f.input :subject
+    = f.input :description
+    = f.input :coordinates, :as => :hidden
+
+  .actions
+    = f.button :submit

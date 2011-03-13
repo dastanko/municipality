@@ -1,0 +1,36 @@
+%p#notice= notice
+
+%p
+  %b State:
+  = @report.state_id
+%p
+  %b User:
+  = @report.user_id
+%p
+  %b Category:
+  = @report.category_id
+%p
+  %b Subject:
+  = @report.subject
+%p
+  %b Description:
+  = @report.description
+%p
+  %b Coordinates:
+  = @report.coordinates
+%p
+  %b Pincolor:
+  = @report.pincolor
+%p
+  %b Address:
+  = @report.address
+%p
+  %b Solved:
+  = @report.solved
+%p
+  %b Approved:
+  = @report.approved
+
+= link_to 'Edit', edit_report_path(@report)
+\|
+= link_to 'Back', reports_path

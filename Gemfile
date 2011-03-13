@@ -6,11 +6,13 @@ gem 'haml-rails'
 gem 'jquery-rails'
 gem 'simple_form'
 gem 'rails3-generators'
+gem 'devise'
 
 group :development, :test do
   gem 'rspec-rails'
   gem 'cucumber-rails'
   gem 'ruby-debug19', :require => 'ruby-debug'
+  gem 'annotate-models'
 end
 
 group :test do
