@@ -1,0 +1,25 @@
+source 'http://rubygems.org'
+
+gem 'rails', '3.0.5'
+gem 'mysql2'
+gem 'haml-rails'
+gem 'jquery-rails'
+gem 'simple_form'
+gem 'rails3-generators'
+
+group :development, :test do
+  gem 'rspec-rails'
+  gem 'cucumber-rails'
+  gem 'ruby-debug19', :require => 'ruby-debug'
+end
+
+group :test do
+  gem 'capybara'
+  gem 'database_cleaner'
+  gem 'factory_girl_rails'
+  gem 'email_spec'
+  gem 'timecop'
+  gem 'launchy'
+end
+
+
