@@ -10,6 +10,6 @@ Municipality::Application.routes.draw do
 
   get "pages/about"
 
-  devise_for :users
+  devise_for :users, :controllers => {:registrations => 'registrations', :sessions => 'sessions'}
 
 end

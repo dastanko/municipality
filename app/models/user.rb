@@ -25,12 +25,34 @@
 #
 
 class User < ActiveRecord::Base
-  has_many :reports
+  attr_accessor :password
+  has_many :reports, :dependent => :destroy
 
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable, :validatable, :lockable and :timeoutable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable
+
+  #Validations
+  EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+
+  validates_presence_of :name
+  validates_format_of :name, :with => /^[^0-9`!@#\$%\^&*+_=-]+$/
+  validates_presence_of :last_name
+  validates_format_of :last_name, :with => /^[^0-9`!@#\$%\^&*+_=-]+$/
+  validates_presence_of :email
+  validates_presence_of :password
+  validates_length_of :password, :minimum => 6
+  validates_presence_of :password_confirmation
+  validates_uniqueness_of :email
+  validates_format_of :email, :with => EMAIL_REGEX
+  validates_confirmation_of :password
+  validates_numericality_of :phone, :allow_blank => true
+  validates_length_of :phone, :within => 6..20, :allow_blank => true
+
+  def full_name
+    name + " " + last_name
+  end
 
   # Setup accessible (or protected) attributes for your model
   #attr_accessible :email, :password, :password_confirmation, :remember_me
