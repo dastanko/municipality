@@ -1,7 +1,6 @@
 %h3 Profile editing
 
-= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => {:method => :put}) do |f|
-  = error_messages_for(resource)
+= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => {:method => :put, :id => "commentform"}) do |f|
 
   .inputs
     = f.input :name

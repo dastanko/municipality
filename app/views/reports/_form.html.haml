@@ -1,5 +1,4 @@
-= simple_form_for(@report) do |f|
-  = error_messages_for(@report)
+= simple_form_for(@report, :html => {:id => "commentform"}) do |f|
 
   .inputs
     - unless user_signed_in?

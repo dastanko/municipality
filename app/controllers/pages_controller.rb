@@ -1,5 +1,6 @@
 class PagesController < ApplicationController
   def home
+    @reports = Report.all
   end
 
   def contacts

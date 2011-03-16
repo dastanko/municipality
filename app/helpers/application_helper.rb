@@ -1,7 +1,10 @@
 module ApplicationHelper
+  def stylesheet(*args)
+    content_for(:head) { stylesheet_link_tag(*args) }
+  end
 
   def javascript(*args)
-    javascript_include_tag *args
+    content_for(:head) { javascript_include_tag(*args) }
   end
 
   def resource_name

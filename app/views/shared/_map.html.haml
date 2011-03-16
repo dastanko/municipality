@@ -1,0 +1,26 @@
+= javascript_include_tag "init", "http://www.google.com/jsapi"
+:javascript
+  google.load('maps', '3', {
+    other_params: 'sensor=false'
+  });
+
+  google.setOnLoadCallback(initialize);
+
+  function initialize() {
+    this.getMap(41.269550, 74.766098, 7);
+  }
+
+#featured.col-full
+
+  #loopedSlider
+
+    .container{:style => "height: 470px; display: block;"}
+
+      #cluster_map.map{:style => "height:450px;"}
+
+    .fix
+
+    .slider-nav.col-full
+      %ul.pagination
+        %li
+        %li

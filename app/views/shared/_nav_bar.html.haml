@@ -1,0 +1,16 @@
+#navigation.col-full
+  %ul#nav
+    %li= link_to 'Home', root_url
+    %li= link_to 'Report a problem', new_report_url
+    %li= link_to 'Recent reports', reports_url
+    %li= link_to 'Contacts', pages_contacts_url
+    %li= link_to 'About', pages_about_url
+
+  #user_nav
+    - if user_signed_in?
+      = current_user.name
+      = link_to "Sign out", destroy_user_session_path
+    - else
+      = link_to 'Sign up', new_user_registration_path
+      |
+      = link_to 'Sign in', new_user_session_path

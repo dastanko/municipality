@@ -2,20 +2,33 @@
 %html(lang="en")
   %head
     %meta(charset="utf-8")
-    %title Municipality
+    %title
+      = "Municipality#{(" | " + yield(:title)) unless yield(:title).blank?}"
     %meta(name="description" content="An Municipality project site of Bishkek city.")
     %meta(name="keywords" content="bishkek, municipality, issues")
 
-    = stylesheet_link_tag :all
+    = stylesheet_link_tag 'style', :media => 'screen'
+    = stylesheet_link_tag 'effects', 'default', 'custom', 'reset', :media => 'all'
+
     = javascript_include_tag :defaults
-    = javascript 'client-side-validations'
     = csrf_meta_tag
 
   %body
     #container
-      #header
+      #header.col-full
+        #logo
+          = link_to image_tag("logo.png"), root_url
 
-      #content
+      = render 'shared/nav_bar'
+      #content.col-full
+        - flash.each do |name, msg|
+          = content_tag :div, msg, :id => "#{name}"
+
+        - if yield(:title)
+          %h1= yield(:title)
+
         = yield
 
-      #sidebarield
+      .clear-block
+
+      #footer.col-full

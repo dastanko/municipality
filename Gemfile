@@ -7,6 +7,7 @@ gem 'jquery-rails'
 gem 'simple_form'
 gem 'rails3-generators'
 gem 'devise'
+gem "compass", ">= 0.10.6"
 
 group :development, :test do
   gem 'rspec-rails'
