@@ -26,8 +26,9 @@ module ApplicationHelper
   def load_map
     if request.url == root_url
       javascript_include_tag "http://maps.google.com/maps/api/js?sensor=false&language=ru", "init"
-    else
+    elsif request.url == new_report_url
       javascript_include_tag "http://maps.google.com/maps/api/js?sensor=false&language=ru", "gmap", "epoly3"
     end
   end
+
 end

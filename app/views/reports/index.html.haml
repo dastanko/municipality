@@ -1,14 +1,33 @@
-%h1= "Reports list"
+- @page_title = 'Reports list'
 
-- @reports.each do |report|
-  .reportShow
-    .subject= link_to report.subject, report
-    .description= report.description
-    .created_at= report.created_at
-    .admin
-      = link_to 'Edit', edit_report_path(report)
-      = link_to 'Destroy', report, :confirm => 'Are you sure?', :method => :delete
+#main.col-left.box
+  %h3 Recent reports
+  %br/
+  - @reports.each do |report|
+    .reports
+      %p
+        %strong= "Subject:"
+        = report.subject
+      %p
+        %strong= "Description"
+        = truncate(report.description, :length => 200, :omission => "...").html_safe
+      %p
+        %strong= "Category"
+        = report.category.name
+      %p
+        %strong= "State"
+        = report.address
+      %p
+        .admin
+        = link_to "Show", report
+        = render "shared/admin", :target => report
 
-%br
+        %hr
 
-= link_to 'New Report', new_report_path
+  %br
+#sidebar.col-right
+  .widget
+    %h3 Последние новости
+
+  .widget
+    %h3 Последние комментарии

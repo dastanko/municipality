@@ -1,4 +1,14 @@
 %h3 New report
 %br/
 = render "shared/map"
-= render 'form'
+#content.col-full
+  #main.col-left.box
+    = render 'form'
+
+  #sidebar.col-right
+    .widget.widget_pages
+      %h3 Инструкция
+      %p Для того чтобы сообщить о проблеме вам необходио указать адресс на карте.
+      %p Вы можете подкорректировать выбранный адресс вручную
+
+

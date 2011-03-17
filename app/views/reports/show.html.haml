@@ -1,36 +1,30 @@
-%p#notice= notice
+= javascript_include_tag 'easySlider1.5'
 
-%p
-  %b State:
-  = @report.state_id
-%p
-  %b User:
-  = @report.user_id
-%p
-  %b Category:
-  = @report.category_id
-%p
-  %b Subject:
-  = @report.subject
-%p
-  %b Description:
-  = @report.description
-%p
-  %b Coordinates:
-  = @report.coordinates
-%p
-  %b Pincolor:
-  = @report.pincolor
-%p
-  %b Address:
-  = @report.address
-%p
-  %b Solved:
-  = @report.solved
-%p
-  %b Approved:
-  = @report.approved
+- @page_title = 'Show report'
 
-= link_to 'Edit', edit_report_path(@report)
-\|
-= link_to 'Back', reports_path
+#main.col-left.box
+  %h3= Report
+  %br/
+  %p
+    %b Subject:
+    = @report.subject
+  %p
+    %b Description:
+    = @report.description.html_safe
+  %p
+    %b Reporter:
+    = @report.user.full_name
+  %p
+    %b Date:
+    = @report.created_at
+  %p
+    %b Address:
+    = @report.address
+
+  = render "shared/admin", :target => @report
+
+#sidebar.col-right
+  .widget
+    .static_map.widget
+  .widget
+    .images_widget.widget
