@@ -45,7 +45,7 @@ GEM
     celerity (0.8.8)
     childprocess (0.1.7)
       ffi (~> 0.6.3)
-    client_side_validations (3.0.0.beta.2)
+    client_side_validations (3.0.0.beta.3)
       activesupport (~> 3.0.0)
     columnize (0.3.2)
     compass (0.10.6)
@@ -171,7 +171,7 @@ PLATFORMS
 DEPENDENCIES
   annotate-models
   capybara
-  client_side_validations (= 3.0.0.beta.2)
+  client_side_validations (= 3.0.0.beta.3)
   compass (>= 0.10.6)
   cucumber-rails
   database_cleaner

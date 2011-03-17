@@ -34,7 +34,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable
 
   #Validations
-  EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+  EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\Z/i
 
   validates_presence_of :name
   validates_format_of :name, :with => /^[^0-9`!@#\$%\^&*+_=-]+$/
