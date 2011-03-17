@@ -1,26 +1,28 @@
-= javascript_include_tag "init", "http://www.google.com/jsapi"
-:javascript
-  google.load('maps', '3', {
-    other_params: 'sensor=false'
-  });
-
-  google.setOnLoadCallback(initialize);
-
-  function initialize() {
-    this.getMap(41.269550, 74.766098, 7);
-  }
-
 #featured.col-full
 
   #loopedSlider
 
     .container{:style => "height: 470px; display: block;"}
 
-      #cluster_map.map{:style => "height:450px;"}
-
-    .fix
+      #map.map{:style => "height:450px;"}
 
     .slider-nav.col-full
+
       %ul.pagination
         %li
+          %a{:href => "javascript:void(0);", :onclick => "goto_state('bi');", :rel => "1"} Бишкек
         %li
+          %a{:href => "javascript:void(0);", :onclick => "goto_state('co');", :rel => "2"} Чуй
+        %li
+          %a{:href => "javascript:void(0);", :onclick => "goto_state('oo');", :rel => "3"} Ош
+        %li
+          %a{:href => "javascript:void(0);", :onclick => "goto_state('bo');", :rel => "4"} Баткен
+        %li
+          %a{:href => "javascript:void(0);", :onclick => "goto_state('jo');", :rel => "5"} Джалал-Абад
+        %li
+          %a{:href => "javascript:void(0);", :onclick => "goto_state('to');", :rel => "6"} Талас
+        %li
+          %a{:href => "javascript:void(0);", :onclick => "goto_state('no');", :rel => "7"} Нарын
+        %li
+          %a{:href => "javascript:void(0);", :onclick => "goto_state('io');", :rel => "8"} Иссык-Куль
+

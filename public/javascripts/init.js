@@ -1,7 +1,7 @@
 getMap = function (lat, lng, zoom) {
   var center = new google.maps.LatLng(lat, lng);
 
-  var map = new google.maps.Map(document.getElementById('cluster_map'), {
+  var map = new google.maps.Map(document.getElementById('map'), {
     zoom: zoom,
     center: center,
     minZoom: 7,
@@ -28,3 +28,5 @@ function goto_state(lid) {
   if (lid == "bi")
     getMap(42.874958, 74.586868, 12);
 }
+
+window.onload = getMap(41.269550, 74.766098, 7);

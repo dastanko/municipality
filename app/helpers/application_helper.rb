@@ -22,4 +22,12 @@ module ApplicationHelper
   def error_messages_for(object)
     render 'shared/error_messages', :target => object
   end
+
+  def load_map
+    if request.url == root_url
+      javascript_include_tag "http://maps.google.com/maps/api/js?sensor=false&language=ru", "init"
+    else
+      javascript_include_tag "http://maps.google.com/maps/api/js?sensor=false&language=ru", "gmap", "epoly3"
+    end
+  end
 end
