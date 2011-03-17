@@ -23,5 +23,7 @@ class Report < ActiveRecord::Base
   belongs_to :category
   belongs_to :user
 
+  validates_presence_of :subject
+  validates_presence_of :description
   accepts_nested_attributes_for :user
 end

@@ -5,6 +5,7 @@ gem 'mysql2'
 gem 'haml-rails'
 gem 'jquery-rails'
 gem 'simple_form'
+gem 'client_side_validations', '3.0.0.beta.2'
 gem 'rails3-generators'
 gem 'devise'
 gem "compass", ">= 0.10.6"

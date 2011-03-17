@@ -1,12 +1,12 @@
-= simple_form_for(@report, :html => {:id => "commentform"}) do |f|
+= simple_form_for(@report, :validate => true, :html => {:id => "commentform"}) do |f|
 
   .inputs
-    - unless user_signed_in?
-      = f.fields_for :user do |u|
-        = u.input :name
-        = u.input :last_name
-        = u.input :email
-        = u.input :phone
+    -#- unless user_signed_in?
+    -#  = f.fields_for :user do |u|
+    -#    = u.input :name
+    -#    = u.input :last_name
+    -#    = u.input :email
+    -#    = u.input :phone
 
     = f.input :address
     = f.association :category
