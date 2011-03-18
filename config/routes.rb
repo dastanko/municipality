@@ -10,6 +10,6 @@ Municipality::Application.routes.draw do
 
   get "pages/about"
 
-  devise_for :users, :controllers => {:registrations => 'registrations', :sessions => 'sessions'}
+  devise_for :users, :controllers => {:registrations => 'registrations', :sessions => 'sessions', :omniauth_callbacks => "users/omniauth_callbacks"}
 
 end

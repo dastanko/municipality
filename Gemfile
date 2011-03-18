@@ -7,8 +7,9 @@ gem 'haml-rails'
 gem 'jquery-rails'
 gem 'simple_form'
 gem 'rails3-generators'
-gem 'devise'
+gem 'devise', "1.2.rc2"
 gem "compass", ">= 0.10.6"
+gem "oa-oauth", :require => "omniauth/oauth"
 
 group :development, :test do
   gem 'rspec-rails'
