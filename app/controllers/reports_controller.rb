@@ -25,7 +25,10 @@ class ReportsController < ApplicationController
   # GET /reports/new.xml
   def new
     @report = Report.new
-    @report.user = User.new
+
+    unless current_user
+      @report.build_anonym_user
+    end
 
     respond_to do |format|
       format.html # new.html.erb
@@ -42,6 +45,10 @@ class ReportsController < ApplicationController
   # POST /reports.xml
   def create
     @report = Report.new(params[:report])
+
+    if current_user
+      @report.user = current_user
+    end
 
     respond_to do |format|
       if @report.save

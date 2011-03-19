@@ -1,18 +1,15 @@
 = simple_form_for(@report, :validate => true, :html => {:id => "commentform"}) do |f|
 
   .inputs
-    - unless user_signed_in?
-      = f.fields_for :user do |u|
-        = u.input :name
-        = u.input :last_name
-        = u.input :email
-        = u.input :phone
+    = load_inputs(f)
 
     = f.input :address
     = f.association :category
     = f.input :subject
     = f.text_area :description
-    = f.input :coordinates, :as => :hidden
+    = f.input :longtitude, :as => :hidden
+    = f.input :latitude, :as => :hidden
+    = f.input :state_id, :as => :hidden
 
   .actions
     = f.button :submit

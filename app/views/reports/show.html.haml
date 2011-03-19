@@ -1,5 +1,3 @@
-= javascript_include_tag 'easySlider1.5'
-
 - @page_title = 'Show report'
 
 #main.col-left.box
@@ -13,7 +11,7 @@
     = @report.description.html_safe
   %p
     %b Reporter:
-    = @report.user.full_name
+    = @report.reporter
   %p
     %b Date:
     = @report.created_at
@@ -26,5 +24,17 @@
 #sidebar.col-right
   .widget
     .static_map.widget
+
   .widget
     .images_widget.widget
+:erb
+  <script type="text/javascript">
+    var arr = <%= @report.to_json(:only => [:longtitude, :latitude]).html_safe %>;
+    var latLng = arr['report']['latitude'] + ", " + arr["report"]['longtitude'];
+
+    console.log(latLng);
+    $(document).ready(function() {
+      $('.static_map').html("<img src='http://maps.google.com/maps/api/staticmap?center=" + latLng + "&zoom=15&size=306x238&&markers=color:blue|label:P|" + latLng + "&sensor=false'/>");
+    });
+  </script>
+

@@ -10,7 +10,16 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110318100704) do
+ActiveRecord::Schema.define(:version => 20110319170304) do
+
+  create_table "anonym_users", :force => true do |t|
+    t.string   "email"
+    t.string   "name"
+    t.string   "last_name"
+    t.string   "phone"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "categories", :force => true do |t|
     t.string   "name"
@@ -25,13 +34,15 @@ ActiveRecord::Schema.define(:version => 20110318100704) do
     t.integer  "category_id"
     t.string   "subject"
     t.text     "description"
-    t.string   "coordinates"
     t.string   "pincolor"
     t.string   "address"
-    t.boolean  "solved",      :default => false
-    t.boolean  "approved",    :default => false
+    t.boolean  "solved",         :default => false
+    t.boolean  "approved",       :default => false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "longtitude"
+    t.string   "latitude"
+    t.integer  "anonym_user_id"
   end
 
   create_table "states", :force => true do |t|

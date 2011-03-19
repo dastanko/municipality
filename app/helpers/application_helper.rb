@@ -24,10 +24,11 @@ module ApplicationHelper
   end
 
   def load_map
+    map = "http://maps.google.com/maps/api/js?sensor=false&language=ru"
     if request.url == root_url
-      javascript_include_tag "http://maps.google.com/maps/api/js?sensor=false&language=ru", "init"
+      javascript_include_tag map, "init"
     elsif request.url == new_report_url
-      javascript_include_tag "http://maps.google.com/maps/api/js?sensor=false&language=ru", "gmap", "epoly3"
+      javascript_include_tag map, "gmap", "epoly3"
     end
   end
 

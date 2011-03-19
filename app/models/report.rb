@@ -22,9 +22,25 @@ class Report < ActiveRecord::Base
   belongs_to :state
   belongs_to :category
   belongs_to :user
+  belongs_to :anonym_user
 
   validates_presence_of :subject
   validates_presence_of :description
   validates_associated :category
+  validates_presence_of :longtitude
+  validates_presence_of :latitude
+  validates_presence_of :address
+  validates_associated :state
+
   accepts_nested_attributes_for :user
+  accepts_nested_attributes_for :anonym_user
+
+  def reporter
+    if self.user.nil?
+      self.anonym_user.full_name
+    else
+      self.user.full_name
+    end
+  end
+
 end
