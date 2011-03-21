@@ -14,6 +14,11 @@ class ReportsController < ApplicationController
   # GET /reports/1.xml
   def show
     @report = Report.find(params[:id])
+    @comment = @report.comments.build
+    unless user_signed_in?
+      @report.comments.last.anonym_user = AnonymUser.new
+    end
+    @report.comments.pop
 
     respond_to do |format|
       format.html # show.html.erb
@@ -26,7 +31,7 @@ class ReportsController < ApplicationController
   def new
     @report = Report.new
 
-    unless current_user
+    unless user_signed_in?
       @report.build_anonym_user
     end
 
@@ -46,7 +51,7 @@ class ReportsController < ApplicationController
   def create
     @report = Report.new(params[:report])
 
-    if current_user
+    if user_signed_in?
       @report.user = current_user
     end
 

@@ -28,6 +28,7 @@ GEM
       activemodel (= 3.0.5)
       activesupport (= 3.0.5)
     activesupport (3.0.5)
+    acts_as_commentable (3.0.1)
     addressable (2.2.4)
     annotate-models (1.0.4)
     archive-tar-minitar (0.5.2)
@@ -190,6 +191,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  acts_as_commentable
   annotate-models
   capybara
   client_side_validations (= 3.0.0.beta.3)

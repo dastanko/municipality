@@ -1,0 +1,13 @@
+= simple_form_for @comment, :validate => true, :html => {:id => "commentform"} do |f|
+
+  .inputs
+    - unless user_signed_in?
+      = f.fields_for :anonym_user do |a|
+        = a.input :name
+        = a.input :email
+    = f.text_area :comment
+    = f.input :commentable_id, :as => :hidden
+    = f.input :commentable_type, :as => :hidden
+
+  .actions
+    = f.button :submit

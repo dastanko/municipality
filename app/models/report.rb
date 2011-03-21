@@ -19,6 +19,7 @@
 #
 
 class Report < ActiveRecord::Base
+  acts_as_commentable
   belongs_to :state
   belongs_to :category
   belongs_to :user
@@ -32,7 +33,6 @@ class Report < ActiveRecord::Base
   validates_presence_of :address
   validates_associated :state
 
-  accepts_nested_attributes_for :user
   accepts_nested_attributes_for :anonym_user
 
   def reporter

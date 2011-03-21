@@ -1,28 +1,29 @@
 - @page_title = 'Reports list'
 
 #main.col-left.box
-  %h3 Recent reports
-  %br/
-  - @reports.each do |report|
-    .reports
-      %p
-        %strong= "Subject:"
-        = report.subject
-      %p
-        %strong= "Description"
-        = truncate(report.description, :length => 200, :omission => "...").html_safe
-      %p
-        %strong= "Category"
-        = report.category.name
-      %p
-        %strong= "State"
-        = report.address
-      %p
-        .admin
-        = link_to "Show", report
-        = render "shared/admin", :target => report
 
-        %hr
+  - @reports.each do |report|
+    .post
+      = link_to image_tag("view.jpg", :class => "woo-image alignleft thumbnail"), report, :title => report.subject
+      %h2.title= link_to report.subject, report
+
+      %p.post-meta
+
+        %span.date
+          = report.created_at
+        %span
+          Category:
+          = report.category.name
+        %span
+          Address:
+          = report.address
+      .entry
+        %p= truncate(report.description, :length => 200, :omission => "...").html_safe
+
+      %p.post-meta
+        %span
+          = link_to "#{report.comments.count} comments", report
+
 
   %br
 #sidebar.col-right

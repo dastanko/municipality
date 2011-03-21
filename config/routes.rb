@@ -1,5 +1,7 @@
 Municipality::Application.routes.draw do
 
+  resources :comments, :only => [:create]
+
   resources :reports
 
   root :to => "pages#home"

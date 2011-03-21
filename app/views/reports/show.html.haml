@@ -1,25 +1,26 @@
 - @page_title = 'Show report'
 
 #main.col-left.box
-  %h3= Report
-  %br/
-  %p
-    %b Subject:
-    = @report.subject
-  %p
-    %b Description:
-    = @report.description.html_safe
-  %p
-    %b Reporter:
-    = @report.reporter
-  %p
-    %b Date:
-    = @report.created_at
-  %p
-    %b Address:
-    = @report.address
 
-  = render "shared/admin", :target => @report
+  #report-info.post
+    = render "report_info", :target => @report
+
+  #admin
+    = render "shared/admin", :target => @report
+
+  #comments
+    = render "comments/comments", :target => @report
+
+  #respond{:style => "display: none;"}
+    = render 'comments/form'
+
+:javascript
+  $(function(){
+     $('#commentformlink').click(function(){
+        $("#respond").slideToggle("slow");
+        return false;
+     });
+  });
 
 #sidebar.col-right
   .widget
@@ -32,7 +33,6 @@
     var arr = <%= @report.to_json(:only => [:longtitude, :latitude]).html_safe %>;
     var latLng = arr['report']['latitude'] + ", " + arr["report"]['longtitude'];
 
-    console.log(latLng);
     $(document).ready(function() {
       $('.static_map').html("<img src='http://maps.google.com/maps/api/staticmap?center=" + latLng + "&zoom=15&size=306x238&&markers=color:blue|label:P|" + latLng + "&sensor=false'/>");
     });

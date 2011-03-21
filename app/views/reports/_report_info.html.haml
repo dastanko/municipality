@@ -1,0 +1,21 @@
+%h1.title
+  = target.subject
+.post-meta
+  %span.date
+    = target.created_at
+
+  %span
+    Category:
+    = target.category.name
+
+  %span
+    Reporter:
+    = target.reporter
+
+  %span
+    Address:
+    = target.address
+
+%p.entry
+  = target.description.html_safe
+

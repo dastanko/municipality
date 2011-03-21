@@ -1,0 +1,21 @@
+%h3 Comments
+= link_to "Leave a comment", "#respond", :title => "Leave a comment", :id => "commentformlink", :class => "leavecomment button"
+.fix
+%ol.commentlist
+- for comment in target.comments
+  %li.comment.even.thread-even.depth-1
+    .avatar-box
+      = image_tag "avatar.png"
+    .comment-container
+      .comment-head
+        %span.name
+          = comment.author
+        %span.date
+          = comment.created_at
+        %span.edit
+          = "Edit or Destroy"
+        %span.perma
+          = link_to "#"
+        .fix
+      #comment.comment-entry
+        = comment.comment

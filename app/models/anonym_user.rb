@@ -1,7 +1,8 @@
 class AnonymUser < ActiveRecord::Base
 
   has_one :report, :dependent => :destroy
-
+  has_one :comment, :dependent => :destroy
+  before_validation :check
 
   EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\Z/i
 
@@ -11,7 +12,6 @@ class AnonymUser < ActiveRecord::Base
   validates_format_of :last_name, :with => /^[^0-9`!@#\$%\^&*+_=-]+$/
   validates_presence_of :email
   validates_format_of :email, :with => EMAIL_REGEX
-  validates_uniqueness_of :email
   validates_numericality_of :phone, :allow_blank => true
   validates_length_of :phone, :within => 6..20, :allow_blank => true
 
@@ -19,4 +19,9 @@ class AnonymUser < ActiveRecord::Base
     name + " " + last_name
   end
 
+  def check
+    if self.last_name.blank?
+      self.last_name = "Anonym User"
+    end
+  end
 end

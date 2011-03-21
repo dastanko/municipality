@@ -25,14 +25,14 @@
 #
 
 class User < ActiveRecord::Base
-  attr_accessor :password
   has_many :reports, :dependent => :destroy
+  has_many :comments, :dependent => :destroy
   has_many :user_tokens, :dependent => :destroy
 
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable, :validatable, :lockable and :timeoutable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :omniauthable, :encryptable
+         :recoverable, :rememberable, :trackable, :omniauthable, :encryptable, :encryptor => "sha512"
 
   #Validations
   EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\Z/i
