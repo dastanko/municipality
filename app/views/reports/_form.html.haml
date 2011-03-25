@@ -1,4 +1,4 @@
-= simple_form_for(@report, :validate => true, :html => {:id => "commentform"}) do |f|
+= simple_form_for(@report, :validate => true, :html => {:id => "commentform", :class => "attachable_form", :multipart => true}) do |f|
 
   .inputs
     - unless user_signed_in?
@@ -15,6 +15,11 @@
     = f.input :longtitude, :as => :hidden
     = f.input :latitude, :as => :hidden
     = f.input :state_id, :as => :hidden
+    = render "attachment_field", :locals => {:f => f}
 
   .actions
     = f.button :submit
+
+= javascript_include_tag "attachment"
+:javascript
+

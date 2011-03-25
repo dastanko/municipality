@@ -1,0 +1,12 @@
+#attachment_fields
+  - if @report.assets.count >= Asset::Max_Attachments
+    %input#report_assets_attributes_2_asset.file.optional{:name => "report[assets_attributes][2][asset]", :type => "file", :disabled => ""}/
+  - else
+    %input#report_assets_attributes_2_asset.file.optional{:name => "report[assets_attributes][2][asset]", :type => "file"}/
+%p
+  Pending Attachments: (Max of #{Asset::Max_Attachments} each under #{Asset::Max_Attachment_Size/1.megabyte}MB)
+
+#attachment_list
+  %ul#pending_files
+    - if action_name == "edit"
+      = render :partial => "assets/attachment", :collection => @report.assets

@@ -14,20 +14,15 @@
   #respond{:style => "display: none;"}
     = render 'comments/form'
 
-:javascript
-  $(function(){
-     $('#commentformlink').click(function(){
-        $("#respond").slideToggle("slow");
-        return false;
-     });
-  });
-
 #sidebar.col-right
   .widget
     .static_map.widget
 
   .widget
-    .images_widget.widget
+    #image.images_widget.widget
+      = image(@report)
+    = render :partial => "images", :collection => @report.assets
+
 :erb
   <script type="text/javascript">
     var arr = <%= @report.to_json(:only => [:longtitude, :latitude]).html_safe %>;
@@ -37,4 +32,6 @@
       $('.static_map').html("<img src='http://maps.google.com/maps/api/staticmap?center=" + latLng + "&zoom=15&size=306x238&&markers=color:blue|label:P|" + latLng + "&sensor=false'/>");
     });
   </script>
+
+= javascript_include_tag "gallery"
 

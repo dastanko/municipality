@@ -24,6 +24,7 @@ class Report < ActiveRecord::Base
   belongs_to :category
   belongs_to :user
   belongs_to :anonym_user
+  has_many :assets, :as => :attachable, :dependent => :destroy
 
   validates_presence_of :subject
   validates_presence_of :description
@@ -34,6 +35,9 @@ class Report < ActiveRecord::Base
   validates_associated :state
 
   accepts_nested_attributes_for :anonym_user
+  accepts_nested_attributes_for :assets
+
+  default_scope :order => "created_at DESC"
 
   def reporter
     if self.user.nil?
@@ -41,6 +45,10 @@ class Report < ActiveRecord::Base
     else
       self.user.full_name
     end
+  end
+
+  def image
+    assets.first
   end
 
 end

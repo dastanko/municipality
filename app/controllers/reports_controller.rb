@@ -50,7 +50,6 @@ class ReportsController < ApplicationController
   # POST /reports.xml
   def create
     @report = Report.new(params[:report])
-
     if user_signed_in?
       @report.user = current_user
     end

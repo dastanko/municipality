@@ -1,0 +1,22 @@
+- target.each do |report|
+  .post
+    = link_to_image(report)
+
+    %h2.title= link_to report.subject, report
+
+    %p.post-meta
+
+      %span.date
+        = report.created_at
+      %span
+        Category:
+        = report.category.name
+      %span
+        Address:
+        = report.address
+    .entry
+      %p= truncate(report.description, :length => 200, :omission => "...").html_safe
+
+    %p.post-meta
+      %span
+        = link_to "#{report.comments.count} comments", report
