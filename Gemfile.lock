@@ -1,3 +1,11 @@
+GIT
+  remote: git://github.com/sferik/rails_admin.git
+  revision: 01974b1e5597c07b949034b905ae5c9ceb1cdda8
+  specs:
+    rails_admin (0.0.1)
+      builder (~> 2.1.0)
+      rails (~> 3.0.3)
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -212,6 +220,7 @@ DEPENDENCIES
   paperclip
   rails (= 3.0.5)
   rails3-generators
+  rails_admin!
   rspec-rails
   ruby-debug19
   simple_form

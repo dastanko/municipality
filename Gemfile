@@ -12,6 +12,7 @@ gem "compass", ">= 0.10.6"
 gem "oa-oauth", :require => "omniauth/oauth"
 gem 'acts_as_commentable'
 gem "paperclip"
+gem 'rails_admin', :git => 'git://github.com/sferik/rails_admin.git'
 
 group :development, :test do
   gem 'rspec-rails'
