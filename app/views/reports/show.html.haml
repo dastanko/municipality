@@ -20,8 +20,8 @@
 
   .widget
     #image.images_widget.widget
-      = image(@report)
-    = render :partial => "images", :collection => @report.assets
+      -#= link_to image(@report), @report.image.url(:original), :id => "color"
+      = render :partial => "images", :collection => @report.assets
 
 :erb
   <script type="text/javascript">
@@ -33,5 +33,5 @@
     });
   </script>
 
-= javascript_include_tag "gallery"
+= javascript_include_tag "jquery.colorbox-min","gallery"
 

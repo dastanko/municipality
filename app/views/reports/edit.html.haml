@@ -1,7 +1,22 @@
-%h1 Editing report
+%h3 Editing report
+%br/
 
-= render 'form'
+#content.col-full
 
-= link_to 'Show', @report
-\|
-= link_to 'Back', reports_path
+  #block-content
+    #main.col-left.box
+      = render 'admin_form'
+
+    #sidebar.col-right
+      .widget
+        .static_map.widget
+
+:erb
+  <script type="text/javascript">
+    var arr = <%= @report.to_json(:only => [:longtitude, :latitude]).html_safe %>;
+    var latLng = arr['report']['latitude'] + ", " + arr["report"]['longtitude'];
+
+    $(document).ready(function() {
+      $('.static_map').html("<img src='http://maps.google.com/maps/api/staticmap?center=" + latLng + "&zoom=15&size=306x238&&markers=color:blue|label:P|" + latLng + "&sensor=false'/>");
+    });
+  </script>

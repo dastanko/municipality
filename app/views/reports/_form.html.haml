@@ -15,11 +15,10 @@
     = f.input :longtitude, :as => :hidden
     = f.input :latitude, :as => :hidden
     = f.input :state_id, :as => :hidden
-    = render "attachment_field", :locals => {:f => f}
+    = render "attachment_field", :f => f
 
   .actions
     = f.button :submit
 
 = javascript_include_tag "attachment"
-:javascript
 

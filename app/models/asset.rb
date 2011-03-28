@@ -1,3 +1,18 @@
+# == Schema Information
+# Schema version: 20110324095111
+#
+# Table name: assets
+#
+#  id                 :integer(4)      not null, primary key
+#  asset_file_name    :string(255)
+#  asset_content_type :string(255)
+#  asset_file_size    :integer(4)
+#  attachable_id      :integer(4)
+#  attachable_type    :string(255)
+#  created_at         :datetime
+#  updated_at         :datetime
+#
+
 class Asset < ActiveRecord::Base
   #path is generally set by default, but i had to set mine
   has_attached_file :asset,

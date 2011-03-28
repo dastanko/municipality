@@ -1,4 +1,5 @@
 class ReportsController < ApplicationController
+  before_filter :authenticate_admin, :only => [:destroy, :edit, :update]
   # GET /reports
   # GET /reports.xml
   def index
@@ -65,8 +66,7 @@ class ReportsController < ApplicationController
     end
   end
 
-  # PUT /reports/1
-  # PUT /reports/1.xml
+  # PUT /reports/1                                      # PUT /reports/1.xml
   def update
     @report = Report.find(params[:id])
 

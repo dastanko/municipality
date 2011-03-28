@@ -1,3 +1,17 @@
+# == Schema Information
+# Schema version: 20110324095111
+#
+# Table name: anonym_users
+#
+#  id         :integer(4)      not null, primary key
+#  email      :string(255)
+#  name       :string(255)
+#  last_name  :string(255)
+#  phone      :string(255)
+#  created_at :datetime
+#  updated_at :datetime
+#
+
 class AnonymUser < ActiveRecord::Base
 
   has_one :report, :dependent => :destroy

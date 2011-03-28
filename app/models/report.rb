@@ -1,21 +1,23 @@
 # == Schema Information
-# Schema version: 20110313114351
+# Schema version: 20110324095111
 #
 # Table name: reports
 #
-#  id          :integer(4)      not null, primary key
-#  state_id    :integer(4)
-#  user_id     :integer(4)
-#  category_id :integer(4)
-#  subject     :string(255)
-#  description :text
-#  coordinates :string(255)
-#  pincolor    :string(255)
-#  address     :string(255)
-#  solved      :boolean(1)
-#  approved    :boolean(1)
-#  created_at  :datetime
-#  updated_at  :datetime
+#  id             :integer(4)      not null, primary key
+#  state_id       :integer(4)
+#  user_id        :integer(4)
+#  category_id    :integer(4)
+#  subject        :string(255)
+#  description    :text
+#  pincolor       :string(255)
+#  address        :string(255)
+#  solved         :boolean(1)
+#  approved       :boolean(1)
+#  created_at     :datetime
+#  updated_at     :datetime
+#  longtitude     :string(255)
+#  latitude       :string(255)
+#  anonym_user_id :integer(4)
 #
 
 class Report < ActiveRecord::Base
@@ -28,10 +30,10 @@ class Report < ActiveRecord::Base
 
   validates_presence_of :subject
   validates_presence_of :description
-  validates_associated :category
   validates_presence_of :longtitude
   validates_presence_of :latitude
   validates_presence_of :address
+  validates_associated :category
   validates_associated :state
 
   accepts_nested_attributes_for :anonym_user

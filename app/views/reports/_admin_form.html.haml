@@ -1,0 +1,23 @@
+= simple_form_for(@report, :validate => true, :html => {:id => "commentform", :class => "attachable_form", :multipart => true}) do |f|
+
+  .inputs
+    - unless @report.anonym_user.nil?
+      = f.fields_for :anonym_user do |anonym_user|
+        = anonym_user.input :name
+        = anonym_user.input :last_name
+        = anonym_user.input :email
+        = anonym_user.input :phone
+
+    = f.input :address
+    = f.association :category
+    = f.association :state
+    = f.input :subject
+    = f.text_area :description
+    = f.input :longtitude, :disabled => true
+    = f.input :latitude, :disabled => true
+    = render "attachment_field", :f => f
+
+  .actions
+    = f.button :submit
+
+= javascript_include_tag "attachment"
