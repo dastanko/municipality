@@ -1,22 +1,21 @@
-- target.each do |report|
-  .post
-    = link_to_image(report)
+.post
+  = link_to_image(reports)
 
-    %h2.title= link_to report.subject, report
+  %h2.title= link_to reports.subject, reports
 
-    %p.post-meta
+  %p.post-meta
 
-      %span.date
-        = report.created_at
-      %span
-        Category:
-        = report.category.name
-      %span
-        Address:
-        = report.address
-    .entry
-      %p= truncate(report.description, :length => 200, :omission => "...").html_safe
+    %span.date
+      = reports.created_at
+    %span
+      Category:
+      = reports.category.name
+    %span
+      Address:
+      = reports.address
+  .entry
+    %p= truncate(reports.description, :length => 200, :omission => "...").html_safe
 
-    %p.post-meta
-      %span
-        = link_to "#{report.comments.count} comments", report
+  %p.post-meta
+    %span
+      = link_to "#{reports.comments.count} comments", reports

@@ -1,8 +1,9 @@
 - @page_title = 'Reports list'
 
-#main.col-left.box
-  = render "reports", :target => @reports
 
+#main.col-left.box
+  = render :partial => "reports", :collection => @reports
+  = paginate @reports
   %br
 #sidebar.col-right
   .widget

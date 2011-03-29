@@ -40,6 +40,7 @@ class Report < ActiveRecord::Base
   accepts_nested_attributes_for :assets
 
   default_scope :order => "created_at DESC"
+  paginates_per 5
 
   def reporter
     if self.user.nil?

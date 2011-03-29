@@ -13,6 +13,7 @@ gem "oa-oauth", :require => "omniauth/oauth"
 gem 'acts_as_commentable'
 gem "paperclip"
 gem 'rails_admin', :git => 'git://github.com/sferik/rails_admin.git'
+gem 'kaminari'
 
 group :development, :test do
   gem 'rspec-rails'

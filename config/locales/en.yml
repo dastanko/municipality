@@ -1,4 +1,9 @@
 en:
-    time:
-        formats:
-            date: "%B %d, %Y"
+  date:
+    formats:
+      default: "%B %d, %Y at %H:%M"
+  views:
+    pagination:
+      previous: "&lt; Previous"
+      next: "Next &gt;"
+      truncate: "&hellip;
