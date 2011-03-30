@@ -1,21 +1,22 @@
 %h3 Comments
 = link_to "Leave a comment", "#respond", :title => "Leave a comment", :id => "commentformlink", :class => "leavecomment button"
+
 .fix
 %ol.commentlist
-- for comment in target.comments
+- target.comments.each do |comment|
   %li.comment.even.thread-even.depth-1
     .avatar-box
-      = image_tag "avatar.png"
+      = image_tag avatar_url(comment.owner)
     .comment-container
       .comment-head
         %span.name
           = comment.author
+        .fix
         %span.date
           = comment.created_at
         %span.edit
-          = "Edit or Destroy"
-        %span.perma
-          = link_to "#"
+          - if admin()
+            = link_to "Destroy", comment, :confirm => "Are you sure?", :method => :delete
         .fix
       #comment.comment-entry
         = comment.comment

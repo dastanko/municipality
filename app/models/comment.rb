@@ -34,10 +34,15 @@ class Comment < ActiveRecord::Base
   validates_presence_of :comment
 
   def author
+    owner.name
+  end
+
+  def owner
     if self.user.nil?
-      self.anonym_user.name
+      self.anonym_user
     else
-      self.user.name
+      self.user
     end
   end
+
 end

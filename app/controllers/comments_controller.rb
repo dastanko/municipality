@@ -1,8 +1,9 @@
 class CommentsController < ApplicationController
+  before_filter :commentable
+  before_filter :authenticate_admin, :except => [:create]
 
   def create
-
-    @commentable = Comment.find_commentable(params[:comment][:commentable_type], params[:comment][:commentable_id])
+    commentable()
     if @commentable
       @comment = @commentable.comments.build(params[:comment])
 
@@ -21,7 +22,20 @@ class CommentsController < ApplicationController
     end
   end
 
+  def destroy
+    @comment = Comment.find(params[:id])
+
+    if @comment.destroy
+       redirect_to show_page_url
+    end
+  end
+
   private
+
+  def commentable
+    @commentable = Comment.find_commentable(params[:comment][:commentable_type], params[:comment][:commentable_id]) if params[:comment]
+    @commentable = Comment.find(params[:id]).commentable if params[:id]
+  end
 
   def show_page_url
     case @commentable.class.name
