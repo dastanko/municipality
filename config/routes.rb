@@ -1,5 +1,7 @@
 Municipality::Application.routes.draw do
 
+  resources :feedbacks, :only => [:create]
+
   resources :assets, :only => [:show, :destroy]
 
   resources :comments, :only => [:create, :destroy]

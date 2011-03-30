@@ -10,10 +10,10 @@
     = yield :head
 
     = stylesheet_link_tag 'style', :media => 'screen'
-    = stylesheet_link_tag 'effects', 'default', 'custom', 'reset', 'colorbox', :media => 'all'
+    = stylesheet_link_tag 'effects', 'default', 'custom', 'reset', 'colorbox', 'contactable', :media => 'all'
 
     = javascript_include_tag :defaults
-    = javascript_include_tag 'client-side-validations'
+    = javascript_include_tag 'client-side-validations', 'jquery.contactable', 'jquery.validate.pack'
     = csrf_meta_tag
 
   %body
@@ -31,6 +31,8 @@
           %h1= yield(:title)
 
         = yield
+
+      #contact
 
       .clear-block
 
