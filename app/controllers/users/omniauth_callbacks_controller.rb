@@ -6,14 +6,14 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
       if current_user #or User.find_by_email(auth.recursive_find_by_key("email"))
         current_user.user_tokens.find_or_create_by_provider_and_uid(omniauth['provider'], omniauth['uid'])
-        flash[:notice] = "Authentication successful"
+        flash[:success] = "Authentication successful"
         redirect_to edit_user_registration_path
       else
 
         authentication = UserToken.find_by_provider_and_uid(omniauth['provider'], omniauth['uid'])
 
         if authentication
-          flash[:notice] = I18n.t "devise.omniauth_callbacks.success", :kind => omniauth['provider']
+          flash[:success] = I18n.t "devise.omniauth_callbacks.success", :kind => omniauth['provider']
           sign_in_and_redirect(:user, authentication.user)
           #sign_in_and_redirect(authentication.user, :event => :authentication)
         else
@@ -33,7 +33,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
           else
             if omniauth['provider'] == 'twitter'
               user.save(:validate => false)
-              flash[:notice] = I18n.t "devise.omniauth_callbacks.success", :kind => omniauth['provider']
+              flash[:success] = I18n.t "devise.omniauth_callbacks.success", :kind => omniauth['provider']
               sign_in(user)
               redirect_to edit_user_registration_url
             else

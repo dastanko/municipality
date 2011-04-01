@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110330133747) do
+ActiveRecord::Schema.define(:version => 20110401104124) do
 
   create_table "anonym_users", :force => true do |t|
     t.string   "email"
@@ -49,6 +49,7 @@ ActiveRecord::Schema.define(:version => 20110330133747) do
     t.integer  "anonym_user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "permalink",                      :default => ""
   end
 
   add_index "comments", ["commentable_id"], :name => "index_comments_on_commentable_id"

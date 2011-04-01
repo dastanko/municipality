@@ -31,7 +31,7 @@
 		//act upon the element that is passed into the design    
 		return this.each(function(options) {
 			//construct the form
-			$(this).html('<div id="contactable"></div><form id="contactForm" method="" action=""><div id="loading"></div><div id="callback"></div><div class="holder"><p><label for="name">Name <span class="red"> * </span></label><br /><input id="name" class="contact" name="name" /></p><p><label for="email">E-Mail <span class="red"> * </span></label><br /><input id="email" class="contact" name="email" /></p><p><label for="comment">Your Feedback <span class="red"> * </span></label><br /><textarea id="comment" name="comment" class="comment" rows="4" cols="30" ></textarea></p><p><input class="submit" type="submit" value="Send"/></p><p class="disclaimer">'+defaults.disclaimer+'</p></div></form>');
+			$(this).html('<div id="contactable"></div><form id="contactForm" method="" action=""><div id="loading"></div><div id="callback"></div><div class="holder"><p><label for="name">Name <span class="red"> * </span></label><br /><input id="name" class="contact" name="name" /></p><p><label for="email">E-Mail <span class="red"> * </span></label><br /><input id="email" class="contact" name="email" /></p><p><label for="message">Your Feedback <span class="red"> * </span></label><br /><textarea id="message" name="message" class="message" rows="4" cols="30" ></textarea></p><p><input class="submit" type="submit" value="Send"/></p><p class="disclaimer">'+defaults.disclaimer+'</p></div></form>');
 			//show / hide function
 			$('div#contactable').toggle(function() {
 				$('#overlay').css({display: 'block'});
@@ -58,7 +58,7 @@
 						required: true,
 						email: true
 					},
-					comment: {
+					message: {
 						required: true
 					}
 				},
@@ -72,7 +72,7 @@
 				submitHandler: function() {
 					$('.holder').hide();
 					$('#loading').show();
-					$.post('/feedbacks',{subject:defaults.subject, name:$('#name').val(), email:$('#email').val(), comment:$('#comment').val()},
+					$.post('/feedbacks',{subject:defaults.subject, name:$('#name').val(), email:$('#email').val(), message:$('#message').val()},
 					function(data){
 						$('#loading').css({display:'none'}); 
 						if( data == 'success') {

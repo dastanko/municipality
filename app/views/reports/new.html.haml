@@ -1,18 +1,16 @@
-%h3 New report
-%br/
+= title "New Report"
 
-= render "shared/map"
+%h2= "New Report"
 
-#content.col-full
+%br.fix
 
-  #block-content
-    #main.col-left.box
-      = render 'form'
+#main.col-left.box
+  = render 'form'
 
-    #sidebar.col-right
-      .widget.widget_pages
-        %h3 Инструкция
-        %p Для того чтобы сообщить о проблеме вам необходио указать адресс на карте.
-        %p Вы можете подкорректировать выбранный адресс вручную
+#sidebar.col-right
+  .widget.widget_pages
+    %h3 Инструкция
+    %p Для того чтобы сообщить о проблеме вам необходио указать адресс на карте.
+    %p Вы можете подкорректировать выбранный адресс вручную
 
 

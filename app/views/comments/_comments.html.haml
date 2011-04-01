@@ -3,20 +3,22 @@
 
 .fix
 %ol.commentlist
-- target.comments.each do |comment|
-  %li.comment.even.thread-even.depth-1
-    .avatar-box
-      = image_tag avatar_url(comment.owner)
-    .comment-container
-      .comment-head
-        %span.name
-          = comment.author
-        .fix
-        %span.date
-          = comment.created_at
-        %span.edit
-          - if admin()
-            = link_to "Destroy", comment, :confirm => "Are you sure?", :method => :delete
-        .fix
-      #comment.comment-entry
-        = comment.comment
+  - target.comments.each do |comment|
+    %li.comment.even.thread-even.depth-1
+      .avatar-box
+        = image_tag avatar_url(comment.owner)
+      .comment-container
+        .comment-head
+          %span.name
+            = comment.author
+          .fix
+          %span.date
+            = comment.created_at
+          %span.perma
+            = link_to "#", comment.permalink
+          %span.edit
+            - if admin()
+              = link_to "Destroy", comment, :confirm => "Are you sure?", :method => :delete
+          .fix
+        .comment-entry{:id => "comment-#{comment.id}"}
+          = comment.comment

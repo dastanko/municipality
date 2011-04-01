@@ -222,8 +222,8 @@ function updateMarkerAddress(str, state) {
   $('#main form input#report_address').val(info);
 
   $("#show_form").click(function () {
-    if ($("#block-content").is(":hidden")) {
-      $("#block-content").slideToggle(2000);
+    if ($("#content").is(":hidden")) {
+      $("#content").slideToggle(2000);
     }
   });
 
@@ -284,7 +284,7 @@ function parseData(xmlData) {
 }
 
 function disable() {
-  $("#block-content").css("display", "none");
+  $("#content").css("display", "none");
 }
 
 function goto_state(lid) {

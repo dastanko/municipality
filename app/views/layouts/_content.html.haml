@@ -1,0 +1,9 @@
+#content.col-full
+  - flash.each do |name, msg|
+    = content_tag :div, msg, :id => "#{name}"
+
+  - if yield(:title)
+
+  = yield
+
+  #contact

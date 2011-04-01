@@ -1,4 +1,12 @@
 module ApplicationHelper
+  def title(page_title, show_title = true)
+    content_for(:title) { page_title.to_s }
+  end
+
+  def show_title?
+    @show_title
+  end
+
   def stylesheet(*args)
     content_for(:head) { stylesheet_link_tag(*args) }
   end
@@ -29,6 +37,14 @@ module ApplicationHelper
       javascript_include_tag map, "init"
     elsif request.url == new_report_url
       javascript_include_tag map, "gmap", "epoly3"
+    end
+  end
+
+  def preload_map
+    if request.url == root_url
+      render "shared/map"
+    elsif request.url == new_report_url
+      render "shared/map"
     end
   end
 

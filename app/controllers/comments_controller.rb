@@ -4,8 +4,10 @@ class CommentsController < ApplicationController
 
   def create
     commentable()
+    debugger
     if @commentable
       @comment = @commentable.comments.build(params[:comment])
+      @comment.permalink = url_for(show_page_url) + "#comment-#{Comment.last.id + 1}"
 
       if user_signed_in?
         @comment.user = current_user

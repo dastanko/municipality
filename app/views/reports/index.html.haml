@@ -1,10 +1,12 @@
-- @page_title = 'Reports list'
-
+- title 'Reports list'
 
 #main.col-left.box
   = render :partial => "reports", :collection => @reports
-  = paginate @reports
-  %br
+
+  .fr
+    = paginate @reports
+  %br.fix
+
 #sidebar.col-right
   .widget
     %h3 Последние новости

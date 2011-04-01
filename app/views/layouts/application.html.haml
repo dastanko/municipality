@@ -18,23 +18,10 @@
 
   %body
     #container
-      #header.col-full
-        #logo
-          = link_to image_tag("logo.png"), root_url
+      = render "layouts/header"
 
-      = render 'shared/nav_bar'
-      #content.col-full
-        - flash.each do |name, msg|
-          = content_tag :div, msg, :id => "#{name}"
+      = render "layouts/featured"
 
-        - if yield(:title)
-          %h1= yield(:title)
+      = render "layouts/content"
 
-        = yield
-
-      #contact
-
-      .clear-block
-
-      #footer.col-full
-        = load_map
+      = render "layouts/footer"
