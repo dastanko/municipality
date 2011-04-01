@@ -16,7 +16,7 @@
 class Asset < ActiveRecord::Base
   #path is generally set by default, but i had to set mine
   has_attached_file :asset,
-                    :styles => { :large => "640x480", :medium => "300x350>", :thumb => "100x100>" }
+                    :styles => { :large => "640x480", :medium => "300x350>", :thumb => "100x100>", :small => "40x40#" }
 
   belongs_to :attachable, :polymorphic => true
 

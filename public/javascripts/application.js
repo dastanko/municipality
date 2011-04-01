@@ -5,7 +5,6 @@ $(function() {
 });
 
 $(document).ready(function() {
-
   $('.inside ul li:last-child').css('border-bottom', '0px'); // remove last border-bottom from list in tab content
 
   $('.wooTabs li a:first').addClass('selected'); // Add .selected class to first tab on load
@@ -16,6 +15,9 @@ $(document).ready(function() {
   $('.wooTabs li a').click(function(evt) { // Init Click funtion on Tabs
 
     var clicked_tab_ref = $(this).attr('href'); // Strore Href value
+
+
+    load_data(clicked_tab_ref);
 
     $(this).parent().parent().children('li').children('a').removeClass('selected'); //Remove selected from all tabs
     $(this).addClass('selected');
@@ -28,6 +30,9 @@ $(document).ready(function() {
   })
 });
 
+function load_data(clicked_id) {
+
+}
 
 
 

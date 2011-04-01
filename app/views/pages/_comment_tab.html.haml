@@ -1,0 +1,9 @@
+%li
+  = image_tag avatar_url(comment_tab.owner), :class => "avatar", :height => "30", :width => "30"
+  = comment_tab.owner.name
+  = link_to truncate(comment_tab.comment, :length => 50, :omission => "...").html_safe, comment_tab.permalink, :title => comment_tab.comment
+
+  %br/
+  %span.date
+    = comment_tab.created_at
+  .fix

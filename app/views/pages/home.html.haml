@@ -32,12 +32,7 @@
 
     .boxes.box.inside
       %ul#tab-pop.list
-        %li
-          %p= "Ad mei ubique mollis patrioque, velit vocent voluptua mea ea, ei dicam copiosae scripserit duo."
-        %li
-          %p= "Ad mei ubique mollis patrioque, velit vocent voluptua mea ea, ei dicam copiosae scripserit duo."
-        %li
-          %p= "Ad mei ubique mollis patrioque, velit vocent voluptua mea ea, ei dicam copiosae scripserit duo."
+        = render :partial => "reports_tab", :collection => @reports
 
       %ul#tab-latest.list
         %li
@@ -46,10 +41,7 @@
           %p= "Ius quodsi volutpat ex. Ei meis adhuc tation per, commune gubergren scribentur eu per. Eum no novum perpetua imperdiet, id augue facilisis iracundia qui. Sit ad diam esse principes. His rebum feugiat aliquyam id, errem integre scaevola no vis, duo eu putant voluptua percipitur."
 
       %ul#tab-comm.list
-        %li
-          %p= "Mea movet euripidis urbanitas eu, diceret gloriatur has no, sed te delenit salutandi ocurreret. No eum menandri consequuntur, nam elaboraret neglegentur no."
-        %li
-          %p= "Mea movet euripidis urbanitas eu, diceret gloriatur has no, sed te delenit salutandi ocurreret. No eum menandri consequuntur, nam elaboraret neglegentur no."
+        = render :partial => "comment_tab", :collection => @comments
 
       %ul#tab-tags.list
         %li

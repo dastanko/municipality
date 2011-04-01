@@ -1,0 +1,9 @@
+%li
+  = link_to_report_image(reports_tab)
+  = link_to reports_tab.subject, reports_tab, :title => reports_tab.subject
+  %br/
+  %span.date
+    = reports_tab.created_at
+  .fix
+
+
